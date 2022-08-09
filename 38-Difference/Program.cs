@@ -1,18 +1,19 @@
 ﻿/*
 Задайте массив вещественных чисел.
-Найдите разницу между максимальным и минимальным элементов массива.
+Найдите разницу между максимальным и минимальным элементами массива.
 */
 
-int[] CreateRandomArray(int size, int min, int max)
+double[] CreateRandomArray(int size, int min, int max)
 {
-    int[] array = new int[size];
+    double[] array = new double[size];
+    Random rnd = new Random();
     for (int i = 0; i < size; i++)
-        array[i] = new Random().Next(min, max + 1);
+        array[i] = rnd.Next(min, max + 1) + rnd.NextDouble();
 
     return array;
 }
 
-void ShowArray(int[] array)
+void ShowArray(double[] array)
 {
     Console.Write("Массив:");
     for (int i = 0; i < array.Length; i++)
@@ -26,12 +27,12 @@ void ShowArray(int[] array)
     Console.WriteLine();
 }
 
-int GetDifference(int[] array)
+double GetDifference(double[] array)
 {
     return array[GetMaxIndex(array)] - array[GetMinIndex(array)];
 }
 
-int GetMaxIndex(int[] array)
+int GetMaxIndex(double[] array)
 {
     int max = 0;
     for (int i = 0; i < array.Length; i++)
@@ -40,7 +41,7 @@ int GetMaxIndex(int[] array)
     return max;
 }
 
-int GetMinIndex(int[] array)
+int GetMinIndex(double[] array)
 {
     int min = 0;
     for (int i = 0; i < array.Length; i++)
@@ -49,6 +50,6 @@ int GetMinIndex(int[] array)
     return min;
 }
 
-int[] array = CreateRandomArray(new Random().Next(10, 20), 0, 99);
+double[] array = CreateRandomArray(new Random().Next(10, 20), 0, 99);
 ShowArray(array);
 Console.WriteLine($"Разница между максимальным и минимальным элементом равна {GetDifference(array)}");
