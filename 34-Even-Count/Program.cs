@@ -35,7 +35,6 @@ int GetEvenCount(int[] array)
     return count;
 }
 
-int size = new Random().Next(10, 20);
 int[] array = CreateRandomArray(new Random().Next(10, 20), 100, 999);
 ShowArray(array);
 Console.WriteLine($"Количество чётных чисел в массиве: {GetEvenCount(array)}");
